@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verify a Verifiable Credential</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <style>
+    pre { background: #f1f1f1; padding: 1em; overflow-x: auto; }
+    .trusted { color: green; font-weight: bold; }
+    .untrusted { color: red; font-weight: bold; }
+  </style>
+</head>
+<body class="w3-container w3-light-grey">
+  <div class="w3-card w3-white w3-padding w3-round-large w3-margin-top">
+    <h2 class="w3-center">🔎 Verify Verifiable Credential</h2>
+    <textarea id="vcInput" class="w3-input w3-border" rows="10" placeholder="Paste Verifiable Credential JSON here"></textarea>
+    <button class="w3-button w3-blue w3-margin-top" onclick="verifyVC()">Verify</button>
+    <div id="result" class="w3-margin-top"></div>
+  </div>
+
+  <script>
+    async function verifyVC() {
+      const vcText = document.getElementById('vcInput').value
+      const resultDiv = document.getElementById('result')
+      resultDiv.innerHTML = ''
+
+      try {
+        const vc = JSON.parse(vcText)
+        const issuerId = vc.issuer?.id || vc.issuer
+        const res = await fetch('/registry/registry-index.json')
+        const registry = await res.json()
+
+        const found = registry.find(r => r.id === issuerId)
+        if (found) {
+          resultDiv.innerHTML = `<p class="trusted">✅ Trusted issuer: ${issuerId}</p>`
+        } else {
+          resultDiv.innerHTML = `<p class="untrusted">❌ Untrusted issuer: ${issuerId}</p>`
+        }
+      } catch (err) {
+        resultDiv.innerHTML = `<p class="untrusted">❌ Error: ${err.message}</p>`
+      }
+    }
+  </script>
+</body>
+</html>
