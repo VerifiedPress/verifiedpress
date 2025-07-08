@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "quorum": {
+    "minimumReviewers": 3,
+    "approvalThreshold": 0.75
+  },
+  "rules": {
+    "addIssuer": "New issuers must submit a VCIP proposal with a valid DID, domain ownership proof, and credential issuance intent. The proposal must be reviewed by at least 3 registry stewards and approved by 75% quorum.",
+    "updateIssuer": "Issuer metadata (e.g., contact info, verification methods) may be updated by the issuer with a signed request. Changes must be reviewed and approved by at least 2 stewards.",
+    "suspendIssuer": "Issuers may be suspended if their credentials are found to be fraudulent, unverifiable, or if their domain/DID is compromised. Suspension requires a majority vote and is reversible.",
+    "revokeIssuer": "Permanent removal requires evidence of malicious behavior, repeated violations, or legal takedown. Revocation must be approved by 100% of active stewards and logged in the registry audit trail."
+  },
+  "disputeResolution": {
+    "contactEmail": "governance@verifiedpress.org",
+    "escalationPolicy": "Disputes are reviewed by a neutral quorum of 5 stewards within 14 days. If unresolved, an independent advisory board may be consulted. All decisions are logged and published."
+  },
+  "lastUpdated": "2025-07-07T20:30:00Z"
+}

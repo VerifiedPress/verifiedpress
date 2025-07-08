@@ -1,0 +1,42 @@
+[
+  {
+    "id": "did:web:verifiedpress.org",
+    "domain": "https://verifiedpress.org",
+    "legalName": "VerifiedPress Foundation",
+    "status": "active",
+    "credentialTypes": ["VerifiedPublisherCredential"],
+    "verificationMethods": [
+      {
+        "id": "#key-1",
+        "type": "Ed25519VerificationKey2020",
+        "publicKeyMultibase": "z6Mki...VerifiedPressKey"
+      }
+    ],
+    "revocationEndpoint": "https://verifiedpress.org/credentials/status",
+    "contact": {
+      "email": "trust@verifiedpress.org",
+      "url": "https://verifiedpress.org/contact"
+    },
+    "lastUpdated": "2025-07-07T20:00:00Z"
+  },
+  {
+    "id": "did:web:presspage.news",
+    "domain": "https://presspage.news",
+    "legalName": "PRESSPAGE ENTERTAINMENT INC",
+    "status": "active",
+    "credentialTypes": ["VerifiedPublisherCredential"],
+    "verificationMethods": [
+      {
+        "id": "#key-1",
+        "type": "Ed25519VerificationKey2020",
+        "publicKeyMultibase": "z6Mkf...PresspageKey"
+      }
+    ],
+    "revocationEndpoint": "https://presspage.news/credentials/status",
+    "contact": {
+      "email": "editor@presspage.news",
+      "url": "https://presspage.news/about"
+    },
+    "lastUpdated": "2025-07-07T20:00:00Z"
+  }
+]

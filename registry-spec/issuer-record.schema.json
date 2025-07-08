@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://verifiedpress.org/schemas/issuer-record.schema.json",
+  "title": "IssuerRecord",
+  "description": "Schema for a trusted issuer entry in the VerifiedPress registry.",
+  "type": "object",
+  "required": ["id", "domain", "status", "credentialTypes", "verificationMethods"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "DID of the issuer (e.g., did:web:verifiedpress.org)"
+    },
+    "domain": {
+      "type": "string",
+      "format": "uri",
+      "description": "Primary domain associated with the issuer"
+    },
+    "legalName": {
+      "type": "string",
+      "description": "Legal name of the issuing organization"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "suspended", "revoked"],
+      "description": "Current trust status of the issuer"
+    },
+    "credentialTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of credential types this issuer is authorized to issue"
+    },
+    "verificationMethods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "publicKeyMultibase"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Fragment identifier (e.g., #key-1)"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["Ed25519VerificationKey2020"],
+            "description": "Signature suite type"
+          },
+          "publicKeyMultibase": {
+            "type": "string",
+            "description": "Multibase-encoded public key"
+          }
+        }
+      },
+      "description": "List of public keys used for credential signing"
+    },
+    "revocationEndpoint": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional endpoint for checking credential revocation status"
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "description": "Optional contact info for registry governance or dispute resolution"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of last registry update"
+    }
+  }
+}

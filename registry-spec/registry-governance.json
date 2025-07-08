@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://verifiedpress.org/schemas/registry-governance.json",
+  "title": "RegistryGovernancePolicy",
+  "description": "Governance rules for managing issuer entries in the VerifiedPress trust registry.",
+  "type": "object",
+  "required": ["version", "quorum", "rules", "disputeResolution"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Version of the governance policy document"
+    },
+    "quorum": {
+      "type": "object",
+      "required": ["minimumReviewers", "approvalThreshold"],
+      "properties": {
+        "minimumReviewers": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Minimum number of reviewers required for a registry change"
+        },
+        "approvalThreshold": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 1.0,
+          "description": "Fraction of reviewers required to approve a change (e.g., 0.75 = 75%)"
+        }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "required": ["addIssuer", "updateIssuer", "suspendIssuer", "revokeIssuer"],
+      "properties": {
+        "addIssuer": {
+          "type": "string",
+          "description": "Process for onboarding a new issuer (e.g., VCIP proposal, DID verification, legal review)"
+        },
+        "updateIssuer": {
+          "type": "string",
+          "description": "Conditions under which issuer metadata can be updated"
+        },
+        "suspendIssuer": {
+          "type": "string",
+          "description": "Criteria and process for temporarily suspending an issuer"
+        },
+        "revokeIssuer": {
+          "type": "string",
+          "description": "Conditions for permanent removal of an issuer from the registry"
+        }
+      }
+    },
+    "disputeResolution": {
+      "type": "object",
+      "required": ["contactEmail", "escalationPolicy"],
+      "properties": {
+        "contactEmail": {
+          "type": "string",
+          "format": "email",
+          "description": "Primary contact for governance-related disputes"
+        },
+        "escalationPolicy": {
+          "type": "string",
+          "description": "Steps for resolving disputes, including timelines and appeals"
+        }
+      }
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last governance policy update"
+    }
+  }
+}
