@@ -1,0 +1,51 @@
+{
+  "@context": "https://www.w3.org/ns/credentials/v2",
+  "linked_dids": [
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1"
+      ],
+      "issuer": "did:press:verifiedpress.org:issuer",
+      "issuanceDate": "2020-12-04T14:08:28-06:00",
+      "expirationDate": "2030-12-04T14:08:28-06:00",
+      "type": [
+        "VerifiableCredential",
+        "DomainLinkageCredential"
+      ],
+      "credentialSubject": {
+        "id": "did:press:presspage.news:publisher",
+        "origin": "https://presspage.news/.well-known/did.json"
+      },
+      "proof": {
+        "type": "RsaVerificationKey2018",
+        "created": "2020-12-04T20:08:28.540Z",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:press:verifiedpress.org:issuer#key-1",
+        "jws": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleS0xIn0.eyJpc3MiOiJkaWQ6cHJlc3M6dmVyaWZpZWRwcmVzcy5vcmc6aXNzdWVyIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6cHJlc3M6cHJlc3NwYWdlLm5ld3M6cHVibGlzaGVyIiwib3JpZ2luIjoiaHR0cHM6Ly9wcmVzc3BhZ2UubmV3cy8ud2VsbC1rbm93bi9kaWQuanNvbiJ9fQ.signature-goes-here"
+      }
+    },
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1"
+      ],
+      "issuer": "did:press:verifiedpress.org:issuer",
+      "issuanceDate": "2020-12-04T14:08:28-06:00",
+      "expirationDate": "2030-12-04T14:08:28-06:00",
+      "type": [
+        "VerifiableCredential",
+        "DomainLinkageCredential"
+      ],
+      "credentialSubject": {
+        "id": "did:press:presspage.news:author:robotjournalist",
+        "origin": "https://presspage.news/.well-known/did.json"
+      },
+      "proof": {
+        "type": "RsaVerificationKey2018",
+        "created": "2020-12-04T20:08:28.540Z",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:press:verifiedpress.org:issuer#key-1",
+        "jws": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleS0xIn0.eyJpc3MiOiJkaWQ6cHJlc3M6dmVyaWZpZWRwcmVzcy5vcmc6aXNzdWVyIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6cHJlc3M6cHJlc3NwYWdlLm5ld3M6cHVibGlzaGVyIiwib3JpZ2luIjoiaHR0cHM6Ly9wcmVzc3BhZ2UubmV3cy8ud2VsbC1rbm93bi9kaWQuanNvbiJ9fQ.signature-goes-here"
+      }
+    }
+  ]
+}
